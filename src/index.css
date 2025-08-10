@@ -1,0 +1,58 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+:root {
+ --accent: #00ffea; /* or any other color */
+}
+
+/* Swiper navigation button styling */
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  width: 40px !important;
+  height: 40px !important;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 30px !important;
+}
+
+/* Triangle clip path */
+.clip-triangle {
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+
+/* Swiper button customization */
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px !important;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  
+}
