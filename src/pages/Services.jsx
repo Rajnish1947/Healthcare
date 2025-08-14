@@ -1,6 +1,6 @@
 
-
 import React from "react";
+import { motion } from "framer-motion";
 
 const companyLogos = [
   { src: "/S2M-Health.jpg", alt: "Optum" },
@@ -17,20 +17,27 @@ const Services = () => {
   return (
     <section className="py-10 px-4 sm:px-6 lg:px-20 bg-white">
       {/* Header */}
-      <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 max-w-4xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 max-w-4xl mx-auto"
+      >
         We're Providing Best Placement Services
-      </div>
+      </motion.div>
 
-      {/* Company Logos Section */}
-      <div className="overflow-x-auto  mb-16">
+      {/* Company Logos */}
+      <div className="overflow-x-auto mb-16">
         <div className="flex gap-4 sm:gap-6 w-max px-2 sm:px-4 py-4">
           {companyLogos.map((logo, i) => (
-            <div
+            <motion.div
               key={i}
               className="min-w-[120px] sm:min-w-[140px] md:min-w-[160px] h-[100px] sm:h-[160px] md:h-[200px] 
                          border border-sky-500 rounded-lg bg-sky-50 
-                         hover:border-sky-700 hover:bg-sky-800 transition 
-                         flex items-center justify-center"
+                         flex items-center justify-center shadow-md"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <img
                 src={logo.src}
@@ -38,21 +45,31 @@ const Services = () => {
                 className="max-w-[100px] sm:max-w-[120px] md:max-w-[140px] max-h-full object-contain"
                 loading="lazy"
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
       {/* Who We Are Section */}
-      <div className="max-w-7xl shadow-lg mx-auto flex flex-col md:flex-row items-start gap-8 md:gap-10 px-4 sm:px-6 md:px-8 py-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl shadow-lg mx-auto flex flex-col md:flex-row items-start gap-8 md:gap-10 px-4 sm:px-6 md:px-8 py-6"
+      >
         {/* Image Column */}
-        <div className="w-full md:w-1/2 h-[310px] sm:h-[350px] md:h-[700px] order-1 md:order-2">
+        <motion.div
+          initial={{ scale: 0.95 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="w-full md:w-1/2 h-[310px] sm:h-[350px] md:h-[500px] order-1 md:order-2 rounded-lg overflow-hidden shadow-lg"
+        >
           <img
             src="/whoweare.jpg"
             alt="Who We Are"
-            className="w-full h-full object-cover rounded-lg shadow-lg"
+            className="w-full h-full md:h-[152] object-cover"
           />
-        </div>
+        </motion.div>
 
         {/* Text Content */}
         <div className="w-full md:w-1/2 py-4 space-y-6 order-2 md:order-1">
@@ -84,12 +101,18 @@ const Services = () => {
                 desc: "We are in the process of growing into Complete RCM (Revenue Cycle Management) projects.",
               },
             ].map((item, index) => (
-              <div key={index} className="flex items-start gap-3">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="flex items-start gap-3"
+              >
                 <span className="text-gray-800 mt-1 text-lg sm:text-2xl">▪</span>
                 <p className="text-gray-600 text-sm sm:text-base">
                   <strong className="text-gray-800">{item.title}</strong> – {item.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -114,21 +137,31 @@ const Services = () => {
             </div>
           </div>
 
-          <button className="mt-8 px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg md:text-xl bg-sky-700 text-white rounded hover:bg-sky-900 transition">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="mt-8 px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg md:text-xl bg-sky-700 text-white rounded hover:bg-sky-900 transition"
+          >
             Read More
-          </button>
+          </motion.button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
 
-// Reusable course item
+// Reusable Course Item
 const CourseItem = ({ title }) => (
-  <div className="flex items-start gap-2 w-full sm:w-1/2">
+  <motion.div
+    className="flex items-start gap-2 w-full sm:w-1/2"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+  >
     <img src="/checked_icon.svg" alt="check" className="w-5 sm:w-6 h-5 sm:h-6 mt-1" />
     <p className="font-bold text-sm sm:text-base">{title}</p>
-  </div>
+  </motion.div>
 );
 
 export default Services;

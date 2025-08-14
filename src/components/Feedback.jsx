@@ -19,10 +19,10 @@ const Feedback = () => {
           {feedbackStats.map((stat, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-6 w-full sm:w-1/2 lg:w-1/4 px-4"
+              className="flex items-center gap-6 w-full sm:w-1/2 lg:w-1/4 px-4  transform transition duration-500 hover:scale-105"
             >
-              {/* Circular Icon with shadow */}
-              <div className="w-20  h-20 bg-white rounded-full flex md:flex-col items-center justify-center shrink-0 shadow-[0_0_15px_#06c8eb]">
+              {/* Circular Icon with glow shadow */}
+              <div className="w-20 h-20  shadow-[0_0_15px_#06c8eb] hover:shadow-[0_0_258px_#06c8eb] bg-white rounded-full flex items-center justify-center transition-shadow duration-300">
                 <img
                   src={stat.icon}
                   alt="icon"
@@ -33,7 +33,7 @@ const Feedback = () => {
               {/* Text Content */}
               <div>
                 <h2 className="text-4xl sm:text-5xl font-bold text-white flex items-center gap-1 leading-none">
-                  <span>{stat.number}</span>
+                  {stat.number}
                   <span>{stat.suffix}</span>
                 </h2>
                 <p className="text-xl sm:text-2xl text-white font-bold mt-1">{stat.title}</p>

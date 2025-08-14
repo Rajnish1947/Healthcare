@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-scroll";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -26,26 +27,28 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const menuItems = ["home", "about", "services", "courses", "contact"];
+
   return (
     <nav
-      className={`w-full bg-white shadow-md fixed top-0 left-0 z-50 transition-transform duration-300 ${
+      className={`w-full fixed top-0 left-0 z-50 transition-transform duration-300 ${
         showNavbar ? "translate-y-0" : "-translate-y-full"
-      }`}
+      } bg-white shadow-lg`}
     >
-      <div className="py-3 px-4 sm:px-6 lg:px-10 max-w-screen-xl mx-auto flex justify-between items-center">
-
+      <div className="py-4 px-4 sm:px-6 lg:px-10 max-w-screen-xl mx-auto flex justify-between items-center">
+        
         {/* Logo */}
         <div className="flex items-center">
           <img
             src="/hllogo.png"
             alt="Logo"
-            className="h-8 sm:h-10 md:h-12 w-auto"
+            className="h-8 sm:h-10 w-auto object-contain"
           />
         </div>
 
-        {/* Desktop Menu - visible on md+ */}
-        <ul className="text-gray-700 text-base lg:text-lg hidden md:flex gap-6 font-normal">
-          {["home", "about", "services", "courses", "contact"].map((item) => (
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-6 text-black text-base lg:text-lg font-medium">
+          {menuItems.map((item) => (
             <li key={item}>
               <Link
                 to={item}
@@ -53,7 +56,7 @@ const Navbar = () => {
                 duration={500}
                 offset={-80}
                 onClick={handleNavClick}
-                className="cursor-pointer hover:text-blue-600"
+                className="cursor-pointer hover:text-blue-600 transition"
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
               </Link>
@@ -61,34 +64,39 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Phone section - always visible */}
-        <a
-          href="https://wa.me/919390081856?text=Hi%20I'm%20interested%20in%20your%20services"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 ml-4"
-        >
-          <img
-            src="/phone_icon_3.svg"
-            alt="Phone"
-            className="h-[2rem] md:h-[3rem] w-auto"
-          />
-          <div className="leading-tight text-[10px] sm:text-[15px] md:text-xl text-cyan-400">
-            <div>Need help</div>
-            <div>+91 93900 81856</div>
-          </div>
-        </a>
-
-        {/* Mobile Menu Button - visible on small screens */}
-        <div className="md:hidden ml-4">
-          <button
-            onClick={toggleMenu}
-            className="text-3xl text-gray-700 focus:outline-none"
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
+        {/* Phone Section + Mobile Menu Button */}
+        <div className="flex items-center gap-4">
+          <a
+            href="https://wa.me/919390081856?text=Hi%20I'm%20interested%20in%20your%20services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3"
           >
-            {isOpen ? <FiX /> : <FiMenu />}
-          </button>
+            <img
+              src="/phone_icon_3.svg"
+              alt="Phone"
+              className="h-[2.2rem] sm:h-[2.4rem] w-auto"
+            />
+            <div
+              style={{ color: "#0CB8B6" }}
+              className="leading-tight text-xs sm:text-sm md:text-base"
+            >
+              <div>Need help</div>
+              <div>+91 93900 81856</div>
+            </div>
+          </a>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="text-3xl text-gray-700 focus:outline-none"
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <FiX /> : <FiMenu />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -98,8 +106,14 @@ const Navbar = () => {
           isOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
-        <ul className="text-gray-700 text-base sm:text-lg px-4 py-4 space-y-4">
-          {["home", "about", "services", "courses", "contact"].map((item) => (
+        <ul
+          className="text-white text-base sm:text-lg px-4 py-4 space-y-4"
+          style={{
+            fontFamily: "'Lato', Arial, sans-serif",
+            backgroundColor: "#0CB8B6",
+          }}
+        >
+          {menuItems.map((item) => (
             <li key={item}>
               <Link
                 to={item}
@@ -107,7 +121,7 @@ const Navbar = () => {
                 duration={500}
                 offset={-80}
                 onClick={handleNavClick}
-                className="block cursor-pointer hover:text-blue-600"
+                className="block cursor-pointer"
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
               </Link>

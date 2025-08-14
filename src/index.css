@@ -1,16 +1,15 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Lato', Arial, sans-serif;
-}
+
 
 :root {
- --accent: #00ffea; /* or any other color */
+ --accent: #00ffea; 
 }
 
 /* Swiper navigation button styling */
@@ -30,10 +29,6 @@ body {
   font-size: 30px !important;
 }
 
-/* Triangle clip path */
-.clip-triangle {
-  clip-path: polygon(0 100%, 50% 0, 100% 100%);
-}
 
 
 /* Swiper button customization */
@@ -55,4 +50,7 @@ body {
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  
+}
+body {
+  overflow-x: hidden;
 }

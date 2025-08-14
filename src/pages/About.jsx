@@ -1,6 +1,8 @@
 
+
 import React from "react";
 import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
 
 const About = () => {
   return (
@@ -10,14 +12,15 @@ const About = () => {
         className="md:w-1/2 overflow-hidden"
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        whileHover={{ scale: 1.05, y: -5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
         <img
           src="/about-us-banner.jpg"
           alt="About Us Banner"
           loading="lazy"
-          className="w-[90%] h-auto mt-5 ml-8 shadow-md rounded-md"
+          className="w-[90%] h-auto mt-5 ml-8 shadow-md rounded-md cursor-pointer"
         />
       </motion.div>
 
@@ -26,9 +29,21 @@ const About = () => {
         <div className="font-bold text-sky-500 text-lg uppercase tracking-wide">
           About Us
         </div>
+
+        {/* Main Heading with Typewriter Loop */}
         <div className="font-extrabold text-4xl text-gray-500">
-          D'VINE HEALTHCARE
+          <Typewriter
+            options={{
+              strings: ["D'VINE HEALTHCARE"],
+              autoStart: true,
+              loop: true,
+              delay: 80,
+              deleteSpeed: 50,
+              pauseFor: 2000,
+            }}
+          />
         </div>
+
         <div className="text-gray-500 leading-relaxed pt-7 space-y-4">
           <p>
             D’Vine Healthcare is a premier healthcare training institute headquartered in Chennai,
