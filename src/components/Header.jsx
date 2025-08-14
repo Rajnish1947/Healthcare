@@ -8,9 +8,9 @@ import "swiper/css/navigation";
 import { motion } from "framer-motion";
 
 const slides = [
-  "https://media.istockphoto.com/id/2151094353/photo/rainbow-colored-fruits-and-vegetables-banner.jpg?s=1024x1024&w=is&k=20&c=wwSD0gmD02c09mmphrs6O8-4H3v1cAatLqvmhZ6pMms=",
-  "https://www.jnncollege.edu.in/wp-content/uploads/2019/03/placementcell.png",
-  "https://assets.telegraphindia.com/telegraph/2022/Jul/1658477709_students.jpg",
+  "/students3.jpg",
+  "/students5.jpg",
+  "/dvinebanner1.jpg",
 ];
 
 const iconBoxes = [
@@ -37,15 +37,15 @@ const HeroSection = () => {
           {slides.map((src, i) => (
             <SwiperSlide key={i}>
               <motion.div
-                className="w-full relative"
+                className="w-full  relative"
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5 }}
+                transition={{ duration: 0.5 }}
               >
                 <img
                   src={src}
                   alt={`Slide ${i + 1}`}
-                  className="w-full max-h-[85vh] object-cover"
+                  className="w-full h-auto object-cover"
                   loading="lazy"
                 />
               </motion.div>
@@ -55,7 +55,7 @@ const HeroSection = () => {
       </div>
 
       {/* Call to Action Section */}
-      <div className="bg-cyan-50 text-center relative z-20 pt-0 md:pt-20 pb-15 px-4 md:px-10">
+      <div className="bg-cyan-100 text-center relative z-20 pt-0 md:pt-20 pb-15 px-4 md:px-10">
         {/* Looping Typewriter Heading without cursor line */}
         <motion.h2
           className="pt-20 text-3xl sm:text-4xl font-semibold pb-4 text-black mb-12 text-center inline-block"
@@ -76,7 +76,7 @@ const HeroSection = () => {
         </motion.h2>
 
         {/* Training Type Cards */}
-        <div className="grid grid-cols-1 mt-18 pt-[1rem] pb-[12rem] sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1  mt-18 pt-[1rem] pb-[12rem] sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-4">
           {iconBoxes.map((box, idx) => (
             <motion.div
               key={idx}
